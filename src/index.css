@@ -1,0 +1,217 @@
+@import "tailwindcss";
+
+/* ————— Palette "baby luxury": panna · beige · salvia · oro tenue · bianco caldo ————— */
+@theme {
+  --color-panna: #faf6ef;
+  --color-bianco-caldo: #fffdf9;
+  --color-crema: #f3ecdd;
+  --color-beige: #e7dbc6;
+  --color-beige-deep: #d9c9ab;
+  --color-salvia: #a9bca0;
+  --color-salvia-deep: #7e9478;
+  --color-salvia-ink: #5c7057;
+  --color-ink: #3e4a39;
+  --color-oro: #c9a96a;
+  --color-oro-deep: #a98547;
+  --color-oro-chiaro: #ecd9ac;
+  --color-blush: #e8cfc2;
+
+  --font-calligraphy: "Great Vibes", "Segoe Script", cursive;
+  --font-elegant: "Cormorant Garamond", Georgia, "Times New Roman", serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-panna);
+  color: var(--color-ink);
+  font-family: var(--font-elegant);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* Grana finissima su tutta la pagina: toglie l'effetto "flat digitale" */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  pointer-events: none;
+  opacity: 0.05;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='0.55'/%3E%3C/svg%3E");
+}
+
+/* ————— Testo oro con riflesso di luce che scorre (delicato, lento) ————— */
+.gold-text {
+  background: linear-gradient(
+    105deg,
+    #a98547 0%,
+    #c9a96a 30%,
+    #f0e0b4 47%,
+    #fff6dd 51%,
+    #c9a96a 66%,
+    #a98547 100%
+  );
+  background-size: 230% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: gold-sheen 7s ease-in-out infinite;
+}
+
+@keyframes gold-sheen {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+/* ————— Carta perlata: base calda + iridescenza + riflesso che attraversa ————— */
+.pearl {
+  position: relative;
+  background:
+    radial-gradient(130% 90% at 12% 6%, rgba(255, 255, 255, 0.95), transparent 55%),
+    conic-gradient(
+      from 200deg at 50% -12%,
+      #fffdf9,
+      #f8f1e4 14%,
+      #fdf8ee 28%,
+      #f4ecdc 44%,
+      #fffdf9 58%,
+      #f8f1e4 74%,
+      #fdf9f0 88%,
+      #fffdf9
+    );
+  border: 1px solid rgba(201, 169, 106, 0.35);
+  box-shadow:
+    0 30px 60px -28px rgba(120, 100, 60, 0.35),
+    0 4px 18px -8px rgba(120, 100, 60, 0.18),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+}
+
+/* Velo iridescente madreperla (salvia / cipria / oro appena percettibili) */
+.pearl::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  background: conic-gradient(
+    from 40deg at 70% 20%,
+    rgba(169, 188, 160, 0.14),
+    rgba(232, 207, 194, 0.12) 25%,
+    rgba(236, 217, 172, 0.16) 50%,
+    rgba(255, 255, 255, 0) 70%,
+    rgba(169, 188, 160, 0.14)
+  );
+  mix-blend-mode: soft-light;
+}
+
+/* Riflesso di luce che percorre la carta ogni qualche secondo */
+.pearl::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 5; /* il riflesso passa sopra al contenuto, come luce vera */
+  border-radius: inherit;
+  pointer-events: none;
+  background: linear-gradient(
+    105deg,
+    transparent 38%,
+    rgba(255, 255, 255, 0.5) 49%,
+    rgba(255, 253, 245, 0.65) 51%,
+    transparent 62%
+  );
+  background-size: 300% 100%;
+  background-position: 130% 0;
+  animation: pearl-sweep 8s ease-in-out infinite;
+}
+
+@keyframes pearl-sweep {
+  0%,
+  55%,
+  100% {
+    background-position: 130% 0;
+  }
+  75% {
+    background-position: -60% 0;
+  }
+}
+
+/* Variante leggera per tessere countdown / sezioni secondarie */
+.pearl-lite {
+  background: linear-gradient(160deg, rgba(255, 253, 249, 0.92), rgba(243, 236, 221, 0.85));
+  border: 1px solid rgba(201, 169, 106, 0.28);
+  box-shadow: 0 10px 26px -18px rgba(120, 100, 60, 0.35);
+}
+
+/* Filo sottile dorato usato come divisore */
+.hairline {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(169, 133, 71, 0.45), transparent);
+}
+
+/* ————— Modalità Baby Luxury: tutto un filo più dorato e luminoso ————— */
+[data-luxury="true"] .gold-text {
+  filter: drop-shadow(0 0 16px rgba(201, 169, 106, 0.5));
+}
+
+[data-luxury="true"] .pearl {
+  border-color: rgba(201, 169, 106, 0.6);
+  box-shadow:
+    0 34px 70px -28px rgba(169, 133, 71, 0.45),
+    0 0 0 4px rgba(236, 217, 172, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.95);
+}
+
+[data-luxury="true"] .pearl-lite {
+  border-color: rgba(201, 169, 106, 0.5);
+}
+
+/* Pulsante pillola primario (WhatsApp) */
+.btn-primary {
+  background: linear-gradient(160deg, var(--color-salvia) 0%, var(--color-salvia-deep) 90%);
+  box-shadow:
+    0 16px 30px -14px rgba(126, 148, 120, 0.65),
+    inset 0 1px 0 rgba(255, 255, 255, 0.35);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, filter 0.25s ease;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.04);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+}
+
+/* Pulsante secondario bordo oro */
+.btn-gold {
+  background: rgba(255, 253, 249, 0.8);
+  border: 1px solid rgba(169, 133, 71, 0.45);
+  transition: transform 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+}
+
+.btn-gold:hover {
+  transform: translateY(-2px);
+  background: rgba(255, 253, 249, 1);
+  box-shadow: 0 12px 24px -14px rgba(169, 133, 71, 0.5);
+}
+
+/* Rispetto della preferenza "riduci animazioni" */
+@media (prefers-reduced-motion: reduce) {
+  .gold-text,
+  .pearl::after {
+    animation: none;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+}
