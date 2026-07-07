@@ -5,7 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc --noEmit && vite build",
+    "dev:sabato": "vite --mode sabato",
+    "build": "tsc --noEmit && vite build && vite build --mode sabato --outDir docs/sabato",
     "preview": "vite preview"
   },
   "dependencies": {

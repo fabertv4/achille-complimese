@@ -2,7 +2,7 @@ import { useRef, useState } from "react";
 import type { ReactNode } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Sparkles } from "lucide-react";
-import { CONFIG } from "./config";
+import { CONFIG, eventTimeLabel } from "./config";
 import EnvelopeIntro from "./components/EnvelopeIntro";
 import InvitationCard from "./components/InvitationCard";
 import Countdown from "./components/Countdown";
@@ -160,7 +160,7 @@ export default function App() {
 
               <footer className="pt-2 text-center text-xs italic text-ink/40">
                 Invito digitale fatto con 🤍 per {CONFIG.baby.name} ·{" "}
-                {CONFIG.event.day} luglio, {CONFIG.event.hour}:00
+                {CONFIG.event.day} luglio, {eventTimeLabel()}
               </footer>
             </div>
           </motion.main>
