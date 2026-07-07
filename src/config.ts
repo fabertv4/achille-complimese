@@ -28,7 +28,7 @@ export const CONFIG = {
     hour: 19,
     minute: 0,
     durationMinutes: 150,
-    place: "Casa di Andreino",
+    place: "Melegnano",
     format: "Aperitivo e qualche dolce",
     description:
       "Aperitivo e qualche dolce per festeggiare i 2 mesi di Achille.",
@@ -42,7 +42,7 @@ export const CONFIG = {
     invite:
       "Vi invito a festeggiare insieme a me questo dolcissimo traguardo.",
     what: "Sarà un aperitivo con qualche dolce.",
-    when: "Vi aspetto alle 19:00 a Casa di Andreino.",
+    when: "Vi aspetto alle 19:00 a Melegnano.",
     plea: "Non mancate, ci tengo tantissimo!",
     closing: "Preparatevi a coccole, foto e dolcetti.",
     signOff: "Con amore,",

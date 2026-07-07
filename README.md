@@ -1,6 +1,6 @@
 # 💌 Il complimese di Achille — invito digitale
 
-Invito interattivo "baby luxury" per i 2 mesi di Achille (8 luglio, ore 19:00, Casa di Andreino).
+Invito interattivo "baby luxury" per i 2 mesi di Achille (8 luglio, ore 19:00, Melegnano).
 Busta animata con sigillo di ceralacca → carta perlata con countdown, timeline, carillon e conferma su WhatsApp.
 
 ## Avvio
